@@ -1,9 +1,12 @@
 from sanic import Sanic
-from sanic.response import json
 
-app = Sanic("UserService")
+from api.routes.user_routes import user_bp
 
 
-@app.get("/hello")
-async def hello(request):
-    return json({"message": "Hello Sanic"})
+def create_app():
+
+    app = Sanic("UserService")
+
+    app.blueprint(user_bp)
+
+    return app
