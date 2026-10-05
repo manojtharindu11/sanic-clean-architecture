@@ -6,6 +6,7 @@ class CreateUserRequest(BaseModel):
     email: EmailStr
     age: int = Field(ge=18)
 
+
 class UserResponse(BaseModel):
     id: int
     name: str
